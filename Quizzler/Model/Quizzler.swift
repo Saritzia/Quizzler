@@ -50,10 +50,8 @@ struct Quizzler {
     }
     
     mutating func nextQuestion(){
-        if questionNumber + 1 < questions.count {
+        if questionNumber + 1 <= questions.count {
             questionNumber+=1
-        }else{
-            //segue
         }
     }
     

@@ -20,6 +20,7 @@
 		52289BB429C9C8DE0066EB50 /* QuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52289BB329C9C8DE0066EB50 /* QuizzViewController.swift */; };
 		52289BB629C9ED070066EB50 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52289BB529C9ED070066EB50 /* QuestionModel.swift */; };
 		52289BB829C9ED790066EB50 /* Quizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52289BB729C9ED790066EB50 /* Quizzler.swift */; };
+		52289BBA29CA196F0066EB50 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52289BB929CA196F0066EB50 /* FinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		52289BB329C9C8DE0066EB50 /* QuizzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzViewController.swift; sourceTree = "<group>"; };
 		52289BB529C9ED070066EB50 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		52289BB729C9ED790066EB50 /* Quizzler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizzler.swift; sourceTree = "<group>"; };
+		52289BB929CA196F0066EB50 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				52289B8229C9C0CC0066EB50 /* InitialViewController.swift */,
 				52289BB329C9C8DE0066EB50 /* QuizzViewController.swift */,
+				52289BB929CA196F0066EB50 /* FinalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				52289BB829C9ED790066EB50 /* Quizzler.swift in Sources */,
 				52289BB229C9C7D40066EB50 /* K.swift in Sources */,
 				52289B7F29C9C0CC0066EB50 /* AppDelegate.swift in Sources */,
+				52289BBA29CA196F0066EB50 /* FinalViewController.swift in Sources */,
 				52289B8129C9C0CC0066EB50 /* SceneDelegate.swift in Sources */,
 				52289BB429C9C8DE0066EB50 /* QuizzViewController.swift in Sources */,
 			);

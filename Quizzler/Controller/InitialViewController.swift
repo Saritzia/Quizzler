@@ -20,6 +20,7 @@ class InitialViewController: UIViewController {
         view.backgroundColor = K.greenColor
         titleLabel.textColor = K.letterColor
         startB.configuration?.cornerStyle = .capsule
+        startB.configuration?.background.backgroundColor = K.redColor
     }
 
     @IBAction func startButton(_ sender: UIButton) {

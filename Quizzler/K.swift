@@ -17,7 +17,14 @@ struct K {
     
     //Identifiers
     static let startSegue = "initialToQuestion"
+    static let finalSegue = "quizzToFinal"
+    static let retrySegue = "finalToStart"
     static let initialImage = "humanBody"
     
-    
+    //Score options
+    static let optionPerfectScore = "Eres una máquina"
+    static let optionGoodJob = "Buen trabajo, no ha estado nada mal"
+    static let optionRegular = "Aprobado por los pelos"
+    static let optionFail = "A seguir intentándolo"
+    static let optionError = "Error al cargar la puntuación"
 }

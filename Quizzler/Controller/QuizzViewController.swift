@@ -26,7 +26,9 @@ class QuizzViewController : UIViewController {
         view.backgroundColor = K.greenColor
         scoreLabel.textColor = K.letterColor
         questionLabel.textColor = K.letterColor
-        aButton.titleLabel?.textColor = K.letterColor
+        aButton.backgroundColor = K.vanillaColor
+        bButton.backgroundColor = K.vanillaColor
+        cButton.backgroundColor = K.vanillaColor
         progressBar.backgroundColor = K.vanillaColor
         progressBar.progressTintColor = K.redColor
         
@@ -34,6 +36,7 @@ class QuizzViewController : UIViewController {
     }
     
     @objc func updateUI(){
+    if quiz.questionNumber < quiz.questions.count{
         //Get the text of the question
         questionLabel.text = quiz.getQuestionText()
         
@@ -48,26 +51,37 @@ class QuizzViewController : UIViewController {
         progressBar.progress = quiz.getProgress()
         
         //Change background color
-        aButton.backgroundColor = UIColor.clear
-        bButton.backgroundColor = UIColor.clear
-        cButton.backgroundColor = UIColor.clear
+        aButton.configuration?.background.backgroundColor = UIColor.clear
+        bButton.configuration?.background.backgroundColor = UIColor.clear
+        cButton.configuration?.background.backgroundColor = UIColor.clear
+    
         
         //Score label update
         scoreLabel.text = "Score = \(quiz.scoreProgress())"
+    }else{
+        performSegue(withIdentifier: K.finalSegue, sender: self)
+        }
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        let userAnswer = sender.titleLabel?.text
-        check = quiz.checkAnswer(userAnswer: userAnswer!)
+            let userAnswer = sender.titleLabel?.text
+            check = quiz.checkAnswer(userAnswer: userAnswer!)
+            
+            if check == true {
+                sender.configuration?.background.backgroundColor = .green
+            }else{
+                sender.configuration?.background.backgroundColor = .red
+            }
+            
+            quiz.nextQuestion()
+            
+            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+      
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! FinalViewController
         
-        if check == true {
-            sender.backgroundColor = .green
-        }else{
-            sender.backgroundColor = .red
-        }
-        
-        quiz.nextQuestion()
-        
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        destinationVC.quizzResult = quiz
     }
 }

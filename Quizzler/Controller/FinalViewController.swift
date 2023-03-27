@@ -12,8 +12,6 @@ class FinalViewController : UIViewController {
     
     @IBOutlet weak var finalScoreLabel: UILabel!
     @IBOutlet weak var emojiImage: UIImageView!
-    
-    
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var retryButton: UIButton!
     
@@ -22,12 +20,12 @@ class FinalViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Item properties
-        view.backgroundColor = K.redColor
+        view.backgroundColor = K.vanillaColor
         finalScoreLabel.textColor = K.letterColor
         messageLabel.textColor = K.letterColor
-        //retryButton.configuration?.background.backgroundColor = K.vanillaColor
-        //retryButton.configuration?.cornerStyle = .capsule
-        //retryButton.titleLabel?.tintColor = K.letterColor
+        retryButton.configuration?.background.backgroundColor = K.greenColor
+        retryButton.configuration?.cornerStyle = .capsule
+        retryButton.titleLabel?.tintColor = K.letterColor
     
         updateController()
     }
@@ -36,9 +34,9 @@ class FinalViewController : UIViewController {
         var text : String = ""
         switch score {
         case 20 : text = K.optionPerfectScore; break
-        case 12...19 : text = K.optionPerfectScore; break
-        case 10...11 : text = K.optionPerfectScore; break
-        case 0..<10 : text = K.optionPerfectScore; break
+        case 12...19 : text = K.optionGoodJob; break
+        case 10...11 : text = K.optionRegular; break
+        case 0..<10 : text = K.optionFail; break
         default: text = K.optionError
         }
         return text
@@ -58,17 +56,12 @@ class FinalViewController : UIViewController {
     
     func updateController(){
         let score = quizzResult?.score ?? -1
-        print(score)
-        
         finalScoreLabel.text = "Puntuación total \(String(describing: score))"
-        
         messageLabel.text = getMessageText(score: score)
-     
         emojiImage.image = getImage(score: score)
     }  
   
     @IBAction func retryButton(_ sender: UIButton) {
-    navigationController?.popToRootViewController(animated: true)
-        print("retry")
+        performSegue(withIdentifier: K.retrySegue, sender: self)
     }
 }
